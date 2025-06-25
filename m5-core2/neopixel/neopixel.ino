@@ -24,7 +24,7 @@ void loop() {
   for (int i = 0; i < PIXELS_LENGTH / 2; i++) { 
     int index = i * 2 + shiftIndex;
 
-    pixels.setPixelColor(index, pixels.Color(100, 100, 100));
+    pixels.setPixelColor(index, pixels.Color(255, 255, 255));
     pixels.show();
     M5.Lcd.setCursor(0, 0);
     M5.Lcd.printf("%d", index);
