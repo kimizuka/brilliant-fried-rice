@@ -6,14 +6,14 @@ ButtonColors onColor  = {BLACK, RED, RED};
 int count = 0;
 char buffer[10];
 
-Button btn(80, 65, 160, 90, false, "", offColor, onColor);
+Button button(80, 65, 160, 90, false, "", offColor, onColor);
 
 void setup() {
   M5.begin();
-  btn.addHandler(handleButtonTouch, E_TOUCH);
-  btn.addHandler(handleButtonRelease, E_RELEASE);
+  button.addHandler(handleButtonTouch, E_TOUCH);
+  button.addHandler(handleButtonRelease, E_RELEASE);
   sprintf(buffer, "%d", count);
-  btn.setLabel(buffer);
+  button.setLabel(buffer);
   M5.Buttons.draw();
 }
 
@@ -27,6 +27,6 @@ void handleButtonTouch(Event & e) {
 
 void handleButtonRelease(Event & e) {
   sprintf(buffer, "%d", count);
-  btn.setLabel(buffer);
+  button.setLabel(buffer);
   M5.Buttons.draw();
 }
