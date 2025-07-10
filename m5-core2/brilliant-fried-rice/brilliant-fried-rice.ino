@@ -1,8 +1,8 @@
 #include <M5Core2.h>
 #include <driver/i2s.h>
-#include "AudioFileSourceSD.h"
-#include "AudioGeneratorMP3.h"
-#include "AudioOutputI2S.h"
+#include <AudioFileSourceSD.h>
+#include <AudioGeneratorMP3.h>
+#include <AudioOutputI2S.h>
 #include <Adafruit_NeoPixel.h>
 
 AudioFileSourceSD *file;
