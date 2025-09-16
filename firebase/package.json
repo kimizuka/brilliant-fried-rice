@@ -1,0 +1,15 @@
+{
+  "name": "brilliant-fried-rice",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "login": "firebase login",
+    "logout": "firebase logout",
+    "init": "firebase init",
+    "deploy": "firebase deploy",
+    "deploy:functions": "firebase deploy --only functions"
+  },
+  "devDependencies": {
+    "firebase-tools": "^14.15.2"
+  }
+}

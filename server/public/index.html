@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>brilliant-fried-rice</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=WDXL+Lubrifont+JP+N&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'WDXL Lubrifont JP N', sans-serif;
+      font-weight: 400;
+      font-style: normal;
+      background: black;
+      overflow: hidden;
+    }
+
+    .box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      height: 100dvh;
+      font-size: 30vh;
+    }
+
+    .box p {
+      display: grid;
+      place-items: center;
+      color: white;
+      -webkit-text-stroke: 1vh gold;
+      filter: drop-shadow(0 0 1vh yellow);
+      scale: 1.2 1;
+    }
+
+    [data-is-open] {
+      opacity: 0;
+      transition: opacity 0.4s ease-in-out;
+    }
+
+    [data-is-open="true"] {
+      opacity: 1;
+    }
+
+    [data-is-open="true"] .box p {
+      animation: beat .4s 2s infinite;
+    }
+
+    @keyframes beat {
+      0% {
+        transform: scale(1);
+      }
+      
+      33% {
+          transform: scale(0.8);
+      }
+
+      66% {
+          transform: scale(1.2);
+      }
+
+      100% {
+         transform: scale(1);
+      }
+    }
+  </style>
+  <script src="/socket.io/socket.io.js"></script>
+</head>
+<body data-is-open="false">
+  <div class="box">
+    <p>黄</p><p>金</p><p>炒</p><p>飯</p>
+  </div>
+  <script>
+    (() => {
+      const socket = io();
+
+      socket.on('connect', () => {
+        console.log('Connected to server:', socket.id);
+      });
+
+      socket.on('isOpen', (isOpen) => {
+        document.body.dataset.isOpen = isOpen;
+      });
+
+      socket.on('disconnect', () => {
+        console.log('Disconnected from server');
+      });
+    })();
+  </script>
+</body>
+</html>
