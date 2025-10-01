@@ -41,7 +41,6 @@ float accZ = 0.0F;
 
 const char* ssid = "SSID";
 const char* password = "PASSWORD";
-const char *api = "API_ENDPOINT";
 const char *ip = "IP_ADDRESS";
 const int port = 10000;
 
